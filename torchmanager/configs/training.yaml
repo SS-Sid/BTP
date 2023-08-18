@@ -1,0 +1,38 @@
+device: cuda:0
+
+epochs: 100
+
+loss:
+  name: CrossEntropyLoss
+  params: {}
+
+optimizer:
+  name: Adam
+  params:
+    lr: 0.0001
+
+metrics:
+  TopKAccuracy:
+    k : 1
+
+early_stopper:
+  patience: 10
+  delta: 0.001
+
+profiler:
+  project: "pytorch-template"
+  name: "SqueezeViT_3_no_aug"
+
+# lr_scheduler:
+#   name: ReduceLROnPlateau
+#   params:
+#     factor: 0.1
+#     patience: 5
+#     threshold: 0.001
+#     min_lr: 1e-6
+
+checkpointer:
+  save_dir: "checkpoints"
+  save_period: 10
+  # resume: true
+  # resume_path: "checkpoints/epoch_10.pth"
