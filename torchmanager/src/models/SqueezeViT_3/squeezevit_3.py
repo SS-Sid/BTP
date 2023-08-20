@@ -28,6 +28,21 @@ class SqueezeViT_3(T.nn.Module):
         in_channels, ih, iw = image_size
 
 
+        self.pooler_conv = ConvBlock(
+            in_channels = in_channels,
+            out_channels = in_channels,
+            kernel_size = 3,
+            stride = 2,
+            padding = 0,
+            is_norm = False,
+            is_activation = True
+        )
+        self.counter_pool = T.nn.MaxPool2d(
+            kernel_size = 3,
+            stride = 2,
+            padding = 1
+        )
+        
         self.fire1 = FireBlock(
             num_layers = 1,
             channels = [in_channels, channels[0]],
@@ -77,11 +92,14 @@ class SqueezeViT_3(T.nn.Module):
         self.classifier = T.nn.Sequential(
             T.nn.AdaptiveAvgPool2d((1, 1)),
             T.nn.Flatten(),
-            T.nn.Linear(channels[-1], num_classes, bias=True)
+            T.nn.Linear(channels[-1], num_classes, bias=True),
+            T.nn.Sigmoid()
         )
 
 
     def forward(self, x):
+        x = self.pooler_conv(x)
+        x = self.counter_pool(x)
         x = self.fire1(x)
 
         x = self.fire2(x)

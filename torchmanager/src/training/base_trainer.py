@@ -13,7 +13,8 @@ from src.utils.logger import logging
 
 import torch
 
-from typing import Any
+from typing import Any, Dict
+# from torch import profiler
 
 
 class BaseTrainer:
@@ -75,6 +76,16 @@ class BaseTrainer:
                 )
                 logging.info(f"Resuming training from epoch {start_epoch}")
 
+        # torch_profiler = profiler.profile(
+        #     activities=[
+        #         profiler.ProfilerActivity.CPU,
+        #         profiler.ProfilerActivity.CUDA
+        #     ],
+        #     profile_memory=True,
+        #     with_flops=True,
+        #     with_stack=True,
+        # )
+        
         for epoch in range(start_epoch+1, self.train_config['epochs']+1):
             for phase in _phases:
                 dataloader = dataloaders[phase]
@@ -109,6 +120,9 @@ class BaseTrainer:
                     epoch,
                     phase
                 )
+            
+            # torch_profiler.step()
+            # torch_profiler.export_chrome_trace(f"workspace/data/torchmanager/logs/trace_{epoch}.json")
             
             if self.checkpointer is not None:
                 if epoch % self.checkpointer.save_period == 0:
@@ -157,7 +171,7 @@ class BaseTrainer:
 
     
     # private methods
-    def _load_train_config(self) -> dict[str, Any]:
+    def _load_train_config(self) -> Dict[str, Any]:
         with open(self.train_config_path, 'r') as train_config_file:
             train_config = yaml.load(train_config_file, Loader=yaml.FullLoader)
         logging.info(f"Train config loaded from {self.train_config_path}")
@@ -201,7 +215,7 @@ class BaseTrainer:
         for metric in self.metrics.values():
             metric.reset()
 
-    def _init_history(self, _phases) -> dict[str, Any]:
+    def _init_history(self, _phases) -> Dict[str, Any]:
         history = {}
         for phase in _phases:
             phase_history = {'loss' : []}
@@ -211,7 +225,7 @@ class BaseTrainer:
             history[phase] = phase_history
         return history
     
-    def _update_history(self, history, epoch, phase) -> dict[str, Any]:
+    def _update_history(self, history, epoch, phase) -> Dict[str, Any]:
         profiler_dict = {}
         profiler_dict[f"{phase}/loss"] = self.running_loss.item()
 
@@ -234,7 +248,7 @@ class BaseTrainer:
             return obj.to(device)
         elif isinstance(obj, torch.nn.Module):
             return obj.to(device)
-        elif isinstance(obj, dict):
+        elif isinstance(obj, Dict):
             return {key: self._move_to_device(value, device) for key, value in obj.items()}
         elif isinstance(obj, list):
             return [self._move_to_device(item, device) for item in obj]

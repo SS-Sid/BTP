@@ -8,6 +8,9 @@ from torchvision.datasets.vision import VisionDataset
 
 from typing import Callable, Optional
 
+import torch
+
+
 class NIH_CXR_14(VisionDataset):
     metadata_file_name = "Data_Entry_2017.csv"
     
@@ -74,6 +77,7 @@ class NIH_CXR_14(VisionDataset):
                 
                 image_file_path = self.get_image_path_from_name(image_file_name)
                 image_labels = self.metadata.loc[image_file_name, "One-Hot Labels"]
+                image_labels = torch.FloatTensor(image_labels)
                 sample = image_file_path, image_labels
                 samples.append(sample)
         

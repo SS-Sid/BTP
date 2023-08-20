@@ -1,0 +1,104 @@
+{
+    "os": "Linux-6.2.0-26-generic-x86_64-with-glibc2.35",
+    "python": "3.11.4",
+    "heartbeatAt": "2023-08-18T14:15:54.768505",
+    "startedAt": "2023-08-18T14:15:53.224416",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "<python with no main file>",
+    "git": {
+        "remote": "https://github.com/SS-Sid/BTP.git",
+        "commit": "9c1830e50cfa2c105ae70e1f00c03cfcb62292bb"
+    },
+    "email": "karanj1601@gmail.com",
+    "root": "/home/karan/Documents/GitHub/BTP",
+    "host": "karan-Legion-5-15IMH05",
+    "username": "karan",
+    "executable": "/home/karan/miniconda3/envs/BTP_Proj/bin/python",
+    "cpu_count": 6,
+    "cpu_count_logical": 12,
+    "cpu_freq": {
+        "current": 2.108916666666667,
+        "min": 800.0,
+        "max": 5000.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2.656,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 2.04,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 1.708,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 1.613,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 2.481,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 2.43,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 2.557,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 1.7,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 2.6,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 0.8,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 3.076,
+            "min": 800.0,
+            "max": 5000.0
+        },
+        {
+            "current": 1.646,
+            "min": 800.0,
+            "max": 5000.0
+        }
+    ],
+    "disk": {
+        "total": 217.24847030639648,
+        "used": 64.16650390625
+    },
+    "gpu": "NVIDIA GeForce GTX 1650 Ti",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce GTX 1650 Ti",
+            "memory_total": 4294967296
+        }
+    ],
+    "memory": {
+        "total": 23.330944061279297
+    }
+}

@@ -7,7 +7,7 @@ from src.data.utils import get_validation_split, get_subset
 
 from src.utils.logger import logging
 
-from typing import Optional, Any, TypeVar, Generic
+from typing import Optional, Any, TypeVar, Generic, Dict, Union
 from torch.utils.data import Dataset, Subset, DataLoader
 from torchvision.transforms import Compose  # type: ignore[import]
 
@@ -30,7 +30,7 @@ class DataPipeline(Generic[T_co]):
 
         self.data_loaders = self._generate_data_loaders()
         
-    def _load_data_config(self) -> dict[str, dict[str, Any]]:
+    def _load_data_config(self) -> Dict[str, Dict[str, Any]]:
         with open(self.data_config_path, 'r') as data_config_file:
             data_config = yaml.load(data_config_file, Loader=yaml.FullLoader)
         
@@ -39,9 +39,9 @@ class DataPipeline(Generic[T_co]):
         
         return data_config
     
-    def _generate_datasets(self) -> dict[str, Dataset[T_co] | Subset[T_co]]:
+    def _generate_datasets(self) -> Dict[str, Union[Dataset[T_co] , Subset[T_co]]]:
         dataset_common_config = self.data_config['dataset_common_config']
-        datasets : dict[str, Dataset[T_co] | Subset[T_co]] = {}
+        datasets : Dict[str, Union[Dataset[T_co] , Subset[T_co]]] = {}
 
         # if no dataset_split_config is provided
             # then create train dataset
@@ -82,7 +82,7 @@ class DataPipeline(Generic[T_co]):
         
         return datasets
         
-    def _generate_subsets(self) -> Optional[dict[str, Subset[T_co]]]:
+    def _generate_subsets(self) -> Optional[Dict[str, Subset[T_co]]]:
         # if no subset_sizes is provided
             # then skip subset creation
         # else create subsets for each split in subset_sizes
@@ -93,7 +93,7 @@ class DataPipeline(Generic[T_co]):
         else:
             logging.info("Subset sizes provided. Creating subsets for each split.")
             
-            subsets : dict[str, Subset[T_co]] = {}
+            subsets : Dict[str, Subset[T_co]] = {}
             for data_split, subset_size in self.data_config['subset_sizes'].items():
                 subsets[data_split] = get_subset(
                     self.datasets[data_split],
@@ -105,7 +105,7 @@ class DataPipeline(Generic[T_co]):
             
             return subsets
 
-    def _generate_transforms(self) -> Optional[dict[str, Compose]]:
+    def _generate_transforms(self) -> Optional[Dict[str, Compose]]:
         # if no transforms_config is provided
             # then skip transform creation
         # else create transforms for each split in transforms_config
@@ -116,7 +116,7 @@ class DataPipeline(Generic[T_co]):
         else:
             logging.info("Transforms config provided. Creating transforms for each split.")
             
-            transforms : dict[str, Compose] = {}
+            transforms : Dict[str, Compose] = {}
             for data_split, transforms_config in self.data_config['transforms_config'].items():
                 transforms[data_split] = create_transforms(
                     **transforms_config
@@ -156,11 +156,11 @@ class DataPipeline(Generic[T_co]):
             
             logging.info("Transforms applied.")
 
-    def _generate_data_loaders(self) -> dict[str, DataLoader[T_co]]:
+    def _generate_data_loaders(self) -> Dict[str, DataLoader[T_co]]:
         # make dataloader for each data split in datasets
         # if subset DNE for data split
             # then make dataloader for dataset
-        data_loaders : dict[str, DataLoader[T_co]] = {}
+        data_loaders : Dict[str, DataLoader[T_co]] = {}
         for data_split, dataset in self.datasets.items():
             if self.subsets is None or self.subsets.get(data_split) is None:
                 logging.info(f"Creating data loader for dataset {data_split}.")

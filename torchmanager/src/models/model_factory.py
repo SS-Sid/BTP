@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Dict
 
 import yaml
 import importlib
@@ -12,7 +12,7 @@ class ModelFactory:
         self.model_config = self._load_model_config()
         self.model = self._load_model()
 
-    def _load_model_config(self) -> dict[str, Any]:
+    def _load_model_config(self) -> Dict[str, Any]:
         with open(self.model_config_path, 'r') as model_config_file:
             model_config = yaml.load(model_config_file, Loader=yaml.FullLoader)
         logging.info(f"Model config loaded from {self.model_config_path}")

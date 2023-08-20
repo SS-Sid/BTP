@@ -1,11 +1,11 @@
 import importlib
 
-from typing import Any
+from typing import Any, Dict
 
 import torch
 
 def get_lr_scheduler(
-    lr_scheduler_config: dict[str, Any],
+    lr_scheduler_config: Dict[str, Any],
     optimizer: torch.optim.Optimizer
 ):
     lr_scheduler_name : str = lr_scheduler_config['name']

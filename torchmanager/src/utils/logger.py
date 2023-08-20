@@ -6,7 +6,7 @@ import os
 from datetime import datetime
 
 LOG_FILE = f"{datetime.now().strftime('%Y-%m-%d_%H-%M-%S')}.log"
-LOG_DIR = os.path.join(os.getcwd(), "logs")
+LOG_DIR = os.path.join(os.getcwd(), "data/torchmanager/logs")
 LOG_PATH = os.path.join(LOG_DIR, LOG_FILE)
 
 # Create the log directory if it doesn't exist

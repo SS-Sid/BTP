@@ -22,7 +22,7 @@ params:
     patch_size:
       - 4
       - 4
-    num_classes: 10
+    num_classes: 14
     qkv_bias: true
     attn_p: 0.1
     proj_p: 0.1

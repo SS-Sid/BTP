@@ -3,25 +3,27 @@ device: cuda:0
 epochs: 100
 
 loss:
-  name: CrossEntropyLoss
+  name: BCELoss
   params: {}
 
 optimizer:
   name: Adam
   params:
-    lr: 0.0001
+    lr: 0.005
 
 metrics:
-  TopKAccuracy:
-    k : 1
+  multiLabelAccuracy:
+    num_labels : 14
+  allLabelAccuracy:
+    num_labels: 14
 
-early_stopper:
-  patience: 10
-  delta: 0.001
+# early_stopper:
+#   patience: 10
+#   delta: 0.001
 
-profiler:
-  project: "pytorch-template"
-  name: "SqueezeViT_3_no_aug"
+# profiler:
+#   project: "pytorch-template"
+#   name: "SqueezeViT_3_no_aug"
 
 # lr_scheduler:
 #   name: ReduceLROnPlateau
@@ -31,8 +33,8 @@ profiler:
 #     threshold: 0.001
 #     min_lr: 1e-6
 
-checkpointer:
-  save_dir: "checkpoints"
-  save_period: 10
-  # resume: true
-  # resume_path: "checkpoints/epoch_10.pth"
+# checkpointer:
+#   save_dir: "checkpoints"
+#   save_period: 10
+#   # resume: true
+#   # resume_path: "checkpoints/epoch_10.pth"

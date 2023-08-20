@@ -1,5 +1,5 @@
 # TODO: Add module docstring
-from typing import Any
+from typing import Any, Dict
 
 from src.data import transforms_zoo
 
@@ -7,7 +7,7 @@ from torchvision.transforms import Compose  # type: ignore[import]
 
 
 def create_transforms(
-        **kwargs : dict[str, Any]
+        **kwargs : Dict[str, Any]
 ) -> Compose:
     # TODO: Add function docstring
     transforms : list[Any] = []

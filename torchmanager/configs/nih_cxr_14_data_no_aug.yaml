@@ -1,7 +1,7 @@
 dataset_common_config:
   import_type: "custom"
   dataset_name: "NIH_CXR_14"
-  root: "D:\\Work\\College\\Classroom\\torchmanager\\data"
+  root: "/workspace/data/NIHChestXray14"
 
 dataset_split_config:
   train:
@@ -17,10 +17,16 @@ split_ratios:
 
 transforms_config:
   train:
+    Resize: 
+      size: 224
     ToTensor: {}
   val:
+    Resize: 
+      size: 224
     ToTensor: {}
   test:
+    Resize: 
+      size: 224
     ToTensor: {}
 
 

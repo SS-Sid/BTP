@@ -1,12 +1,12 @@
 import importlib
 
-from typing import Any
+from typing import Any, Dict
 
 import torch
 
 
 def get_optimizer(
-    optimizer_config: dict[str, Any],
+    optimizer_config: Dict[str, Any],
     model: torch.nn.Module
 ):
     optimizer_name : str = optimizer_config['name']

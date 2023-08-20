@@ -10,7 +10,7 @@ from src.utils.logger import logging
 
 import torch
 
-from typing import Any
+from typing import Any, Dict
 
 
 class TrainManager:
@@ -180,7 +180,7 @@ class TrainManager:
 
     
     # private methods
-    def _load_train_config(self) -> dict[str, Any]:
+    def _load_train_config(self) -> Dict[str, Any]:
         with open(self.train_config_path, 'r') as train_config_file:
             train_config = yaml.load(train_config_file, Loader=yaml.FullLoader)
         logging.info(f"Train config loaded from {self.train_config_path}")
@@ -234,7 +234,7 @@ class TrainManager:
         for metric in self.metrics.values():
             metric.reset()
     
-    def _init_history(self, _phases) -> dict[str, Any]:
+    def _init_history(self, _phases) -> Dict[str, Any]:
         history = {}
         for phase in _phases:
             phase_history = {'loss' : [], 'metrics' : {}}
@@ -242,7 +242,7 @@ class TrainManager:
             history[phase] = phase_history
         return history
     
-    def _update_history(self, history, running_loss, epoch, phase) -> dict[str, Any]:
+    def _update_history(self, history, running_loss, epoch, phase) -> Dict[str, Any]:
         profiler_dict = {}
         profiler_dict[f"{phase}/loss"] = running_loss
 
@@ -265,7 +265,7 @@ class TrainManager:
             return obj.to(device)
         elif isinstance(obj, torch.nn.Module):
             return obj.to(device)
-        elif isinstance(obj, dict):
+        elif isinstance(obj, Dict):
             return {key: self._move_to_device(value, device) for key, value in obj.items()}
         elif isinstance(obj, list):
             return [self._move_to_device(item, device) for item in obj]

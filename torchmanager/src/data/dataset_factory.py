@@ -1,13 +1,13 @@
 # TODO: Add module docstring
 import os
-from typing import TypeAlias, Any
+from typing import Any
 from pathlib import Path
 
 from src.data import dataset_zoo
 
 import torchvision  # type: ignore
 
-VisionDatasetAlias : TypeAlias = torchvision.datasets.vision.VisionDataset
+VisionDatasetAlias = torchvision.datasets.vision.VisionDataset
 
 
 def get_torchvision_datasets(

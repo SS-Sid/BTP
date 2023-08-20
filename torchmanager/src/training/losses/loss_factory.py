@@ -1,10 +1,10 @@
 import importlib
 
-from typing import Any
+from typing import Any, Dict
 
 
 def get_loss_function(
-    loss_config: dict[str, Any]
+    loss_config: Dict[str, Any]
 ):
     loss_function_name : str = loss_config['name']
     try:
