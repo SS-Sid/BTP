@@ -4,24 +4,6 @@ from src.training.base_trainer import BaseTrainer
 
 import os
 
-import torch
-import numpy as np
-import random
-# from torch import profiler
-# import
-
-# SEED = 85
-# def seed_everything(seed):
-#     os.environ["PYTHONHASHSEED"] = str(seed)
-#     random.seed(seed)
-#     np.random.seed(seed)
-    
-#     torch.manual_seed(seed)
-#     torch.cuda.manual_seed(seed)
-#     torch.backends.cudnn.deterministic = True
-#     torch.backends.cudnn.benchmark = False
-
-# seed_everything(SEED)
 
 CONFIG_DIR = "/workspace/data/torchmanager/configs"
 DATA = "nih_cxr_14_data_no_aug.yaml"
@@ -50,16 +32,6 @@ class ClassifierTrainer(BaseTrainer):
     
     def train_step(self, batch_data, batch_idx):
         # init_batch
-        
-        # with profiler.profile(
-        #     activities=[
-        #         profiler.ProfilerActivity.CPU,
-        #         profiler.ProfilerActivity.CUDA
-        #     ],
-        #     profile_memory=True,
-        #     with_flops=True,
-        #     with_stack=True,
-        # ) as torch_profiler:
         inputs, targets = batch_data
 
         # process_batch
@@ -79,11 +51,6 @@ class ClassifierTrainer(BaseTrainer):
             'loss' : loss_value,
             **metrics_values
         }
-        #     torch_profiler.step()
-        # torch_profiler.export_chrome_trace(f"workspace/data/torchmanager/logs/trace_{batch_idx}.json")
-
-        # print("trace generated")
-        # sys.stdout.flush()
 
         return results
     

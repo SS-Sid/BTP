@@ -1,7 +1,7 @@
 dataset_common_config:
   import_type: "custom"
-  dataset_name: "NIH_CXR_14"
-  root: "/workspace/data/NIHChestXray14"
+  dataset_name: "Preloaded_NIH_CXR_14"
+  root: "/workspace/data/Preloaded_NIHChestXray14"
 
 dataset_split_config:
   train:
@@ -13,21 +13,6 @@ split_ratios:
   val:
     parent: "train"
     ratio: 0.2
-
-
-transforms_config:
-  train:
-    Resize: 
-      size: 224
-    ToTensor: {}
-  val:
-    Resize: 
-      size: 224
-    ToTensor: {}
-  test:
-    Resize: 
-      size: 224
-    ToTensor: {}
 
 
 data_loader_config:
