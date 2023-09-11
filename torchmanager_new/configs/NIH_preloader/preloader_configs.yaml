@@ -1,0 +1,17 @@
+root: "/workspace/data/NIHChestXray14"
+destination: "/workspace/data/Processed_NIHChestXray14"
+
+
+transforms_config:
+  train:
+    Resize: 
+      size: 224
+    Grayscale:
+      num_output_channels: 1
+    ToTensor: {}
+  test:
+    Resize: 
+      size: 224
+    Grayscale:
+      num_output_channels: 1
+    ToTensor: {}

@@ -1,0 +1,16 @@
+name: ViT
+
+params:
+    img_size:
+      - 3
+      - 32
+      - 32
+    num_classes: 10 
+    patch_size: 4
+    embed_dim: 256
+    num_blocks: 6
+    num_heads: 8
+    mlp_scale: 2
+    qkv_bias: true
+    attn_p: 0.1
+    proj_p: 0.1

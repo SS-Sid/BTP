@@ -1,0 +1,31 @@
+name: MobileViT
+
+params:
+    image_size: 
+      - 3
+      - 256
+      - 256
+    channels:
+      - 16
+      - 16
+      - 24
+      - 24
+      - 48
+      - 48
+      - 64
+      - 64
+      - 80
+      - 80
+      - 320
+    expansion_factor: 2
+    dims: 
+      - 64
+      - 80
+      - 96
+    kernel_size: 3
+    patch_size: 
+      - 2
+      - 2
+    num_classes: 14
+    attn_p: 0.1
+    proj_p: 0.1

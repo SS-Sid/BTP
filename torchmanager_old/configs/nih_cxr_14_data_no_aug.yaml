@@ -1,0 +1,48 @@
+dataset_common_config:
+  import_type: "custom"
+  dataset_name: "NIH_CXR_14"
+  root: "/workspace/data/NIHChestXray14"
+
+dataset_split_config:
+  train:
+    train: true
+  test:
+    train: false
+
+split_ratios:
+  val:
+    parent: "train"
+    ratio: 0.2
+
+
+transforms_config:
+  train:
+    Resize: 
+      size: 224
+    ToTensor: {}
+  val:
+    Resize: 
+      size: 224
+    ToTensor: {}
+  test:
+    Resize: 
+      size: 224
+    ToTensor: {}
+
+
+data_loader_config:
+  train:
+    batch_size: 64
+    shuffle: true
+    num_workers: 0
+    pin_memory: true
+  val:
+    batch_size: 64
+    shuffle: false
+    num_workers: 0
+    pin_memory: true
+  test:
+    batch_size: 64
+    shuffle: false
+    num_workers: 0
+    pin_memory: true

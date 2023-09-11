@@ -1,0 +1,28 @@
+name: SqueezeViT_3
+
+params:
+    image_size:
+      - 1
+      - 224
+      - 224
+    squeeze_layers:
+      - 3
+      - 2
+    channels:
+      - 32
+      - 64
+      - 64
+      - 128
+      - 256
+      - 256
+    embed_dim: 64
+    num_blocks: 4
+    num_heads: 4
+    mlp_scale: 2
+    patch_size:
+      - 4
+      - 4
+    num_classes: 14
+    qkv_bias: true
+    attn_p: 0.1
+    proj_p: 0.1

@@ -1,0 +1,5 @@
+name: SqueezeNet
+
+params:
+  num_labels: 14
+  pretrained: true

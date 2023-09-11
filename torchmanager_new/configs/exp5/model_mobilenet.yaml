@@ -1,0 +1,5 @@
+name: MobileNet
+
+params:
+  num_labels: 14
+  pretrained: false
