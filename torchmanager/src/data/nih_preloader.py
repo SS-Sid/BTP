@@ -10,6 +10,7 @@ import torch
 import pickle
 
 
+
 class NIH_CXR_14_Preloader:
     metadata_file_name = "Data_Entry_2017.csv"
     
@@ -72,9 +73,6 @@ class NIH_CXR_14_Preloader:
             data_list = self.test_list
             phase = "test"
         
-        if self.batch_size is None:
-            self.batch_size = len(data_list)
-        
         if not os.path.exists(self.destination):
             os.makedirs(self.destination)
         main_dir = os.path.join(self.destination, phase)
@@ -84,8 +82,13 @@ class NIH_CXR_14_Preloader:
         samples = []
         
         with open(os.path.join(self.root, data_list), 'rt') as split_file:
-            for line_idx, line in enumerate(split_file):
-#                 print(f"{line_idx+1}", end='//')
+            lines = split_file.readlines()
+
+            if self.batch_size is None:
+                self.batch_size = len(lines)
+
+                
+            for line_idx, line in enumerate(lines):
                 image_file_name = line.strip()
                 
                 image_file_path = self.get_image_path_from_name(image_file_name)
@@ -103,9 +106,6 @@ class NIH_CXR_14_Preloader:
                         pickle.dump(samples, file)
                     samples = []
                     print(f"saved batch {batch_num}.")
-                    
-                    if batch_num == 1:
-                        break
             
             if samples:
                 print(f"saving residue batch...")

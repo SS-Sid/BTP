@@ -132,6 +132,9 @@ class MobileViT(T.nn.Module):
 
 
     def forward(self, x):
+        if x.size(1) == 1:
+            # x is single channel input, therefore repeat to 3 channel. 
+            x = x.repeat(1,3,1,1)
         x = self.conv1(x)
         x = self.mv2_1(x)
 
@@ -151,5 +154,7 @@ class MobileViT(T.nn.Module):
 
         x = self.avg_pool(x).view(-1, x.shape[1])
         x = self.fc(x)
+        # add sigmoid for multilabel class.
+        x = T.sigmoid(x)
 
         return x

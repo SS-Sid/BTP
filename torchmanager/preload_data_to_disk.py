@@ -1,13 +1,13 @@
 import yaml
 
-from torchmanager.src.data.nih_preloader import NIH_CXR_14_Preloader
-from torchmanager.src.data.transforms_factory import create_transforms
+from src.data.nih_preloader import NIH_CXR_14_Preloader
+from src.data.transforms_factory import create_transforms
 
 from torchvision.transforms import Compose  # type: ignore[import]
 from typing import Dict
 
 
-PRELOAD_CONFIG_FILE = "/workspace/data/torchmanager/configs/preloader_configs.yaml"
+PRELOAD_CONFIG_FILE = "/workspace/data/torchmanager/configs/NIH_preloader/preloader_configs.yaml"
 
 # Load data config yaml
 with open(PRELOAD_CONFIG_FILE, 'r') as data_config_file:

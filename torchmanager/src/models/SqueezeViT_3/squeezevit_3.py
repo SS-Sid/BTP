@@ -30,7 +30,7 @@ class SqueezeViT_3(T.nn.Module):
 
         self.pooler_conv = ConvBlock(
             in_channels = in_channels,
-            out_channels = in_channels,
+            out_channels = 3,
             kernel_size = 3,
             stride = 2,
             padding = 0,
@@ -45,7 +45,7 @@ class SqueezeViT_3(T.nn.Module):
         
         self.fire1 = FireBlock(
             num_layers = 1,
-            channels = [in_channels, channels[0]],
+            channels = [3, channels[0]],
             is_pool = False
         )
 
