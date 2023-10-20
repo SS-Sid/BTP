@@ -1,12 +1,12 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: testexp6
+  name: finalexp6
 spec:
   template:
     spec:
       containers:
-      - name: testexp6
+      - name: finalexp6
         image: nvcr.io/nvidia/pytorch:22.06-py3
         command: ["python"]
         args: ["/workspace/data/torchmanager/main.py"]

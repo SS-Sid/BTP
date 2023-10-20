@@ -1,5 +1,5 @@
 root: "/workspace/data/NIHChestXray14"
-destination: "/workspace/data/Processed_NIHChestXray14"
+destination: "/workspace/data/Processed_NIHChestXray14_binary"
 
 
 transforms_config:

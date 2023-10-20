@@ -18,7 +18,9 @@ class MultiLabelAUROC(torch.nn.Module):
         for label_idx in range(self.num_labels):
             true_label_col = self.true_labels[:, label_idx]
             predicted_probs_col = self.predicted_probs[:, label_idx]
+            # print(label_idx,self.true_labels.size(),true_label_col.size(),self.predicted_probs.size(),predicted_probs_col.size())
             auroc = roc_auc_score(true_label_col.numpy(), predicted_probs_col.numpy())
+            
             auroc_scores.append(auroc)
 
         return auroc_scores

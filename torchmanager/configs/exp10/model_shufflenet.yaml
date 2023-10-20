@@ -1,0 +1,5 @@
+name: ShuffleNet
+
+params:
+  num_labels: 14
+  pretrained: false

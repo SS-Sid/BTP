@@ -1,0 +1,5 @@
+name: Densenet121
+
+params:
+  num_labels: 14
+  pretrained: true

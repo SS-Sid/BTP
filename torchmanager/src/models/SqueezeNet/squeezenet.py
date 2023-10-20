@@ -1,5 +1,5 @@
 import torch
-from torchvision.models import squeezenet1_0
+from torchvision.models import squeezenet1_1
 
 
 class SqueezeNet(torch.nn.Module):
@@ -10,9 +10,9 @@ class SqueezeNet(torch.nn.Module):
     ):
         super().__init__()
         if pretrained:
-            self.model = squeezenet1_0(weights="DEFAULT")
+            self.model = squeezenet1_1(weights="DEFAULT")
         else:
-            self.model = squeezenet1_0(weights=None)
+            self.model = squeezenet1_1(weights=None)
         
         self.model.classifier[1] = torch.nn.Conv2d(
             512, 
@@ -20,6 +20,7 @@ class SqueezeNet(torch.nn.Module):
             kernel_size=(1, 1), 
             stride=(1, 1)
         )
+        self.model.classifier[2] = torch.nn.Identity()
         self.model.classifier.add_module('4', torch.nn.Flatten())
         self.model.classifier.add_module('5', torch.nn.Sigmoid())
 

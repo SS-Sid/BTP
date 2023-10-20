@@ -1,0 +1,5 @@
+name: ResNet18
+
+params:
+  num_labels: 14
+  pretrained: false

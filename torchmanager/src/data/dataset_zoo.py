@@ -178,3 +178,126 @@ class Preloaded_NIH_CXR_14(VisionDataset):
     
     def __len__(self):
         return len(self.samples)
+
+
+class Preloaded_CheXpert(VisionDataset):
+    classes = ['No Finding', 'Enlarged Cardiomediastinum', 'Cardiomegaly',
+       'Lung Opacity', 'Lung Lesion', 'Edema', 'Consolidation', 'Pneumonia',
+       'Atelectasis', 'Pneumothorax', 'Pleural Effusion', 'Pleural Other',
+       'Fracture', 'Support Devices']
+    
+    def __init__(
+            self,
+            root: str,
+            train: bool = True,
+            transform: Optional[Callable] = None,
+            target_transform: Optional[Callable] = None
+    ):
+        super().__init__(root, transform=transform, target_transform=target_transform)
+        self.root = root
+        self.train = train
+        
+        self.transform = transform
+        self.target_transform = target_transform
+        
+        self.samples = self.load_dataset()
+    
+    def load_dataset(self):
+        if self.train:
+            phase = "train"
+        else:
+            phase = "test"
+        
+        samples = []
+        
+        main_dir = os.path.join(self.root, phase)
+        for batch_dir in os.listdir(main_dir):
+            with open(os.path.join(main_dir, batch_dir), 'rb') as file:
+                batch = pickle.load(file)
+                samples.extend(batch)
+                # print(len(samples[0][1]))
+        
+        return samples
+    
+    def __getitem__(self, index):
+        img, target = self.samples[index]
+        # print(len(target))
+        
+        
+        if self.transform is not None:
+            img = self.transform(img)
+
+        if self.target_transform is not None:
+            target = self.target_transform(target)
+        
+        return img, target
+    
+    def __len__(self):
+        return len(self.samples)
+    
+    
+class Preloaded_VinBig(VisionDataset):
+    # classes = [
+#         "No Finding",
+    #     "Atelectasis",
+    #     "Cardiomegaly",
+    #     "Effusion",
+    #     "Infiltration",
+    #     "Mass",
+    #     "Nodule",
+    #     "Pneumonia",
+    #     "Pneumothorax",
+    #     "Consolidation",
+    #     "Edema",
+    #     "Emphysema",
+    #     "Fibrosis",
+    #     "Pleural_Thickening",
+    #     "Hernia"
+    # ]
+    
+    def __init__(
+            self,
+            root: str,
+            train: bool = True,
+            transform: Optional[Callable] = None,
+            target_transform: Optional[Callable] = None
+    ):
+        super().__init__(root, transform=transform, target_transform=target_transform)
+        self.root = root
+        self.train = train
+        
+        self.transform = transform
+        self.target_transform = target_transform
+        
+        self.samples = self.load_dataset()
+    
+    def load_dataset(self):
+        if self.train:
+            phase = "train"
+        else:
+            phase = "test"
+        
+        samples = []
+        
+        main_dir = os.path.join(self.root, phase)
+        for batch_dir in os.listdir(main_dir):
+            with open(os.path.join(main_dir, batch_dir), 'rb') as file:
+                batch = pickle.load(file)
+                samples.extend(batch)
+        
+        return samples
+    
+    def __getitem__(self, index):
+        img, target = self.samples[index]
+        
+        
+        if self.transform is not None:
+            img = self.transform(img)
+
+        if self.target_transform is not None:
+            target = self.target_transform(target)
+        
+        return img, target
+    
+    def __len__(self):
+        return len(self.samples)

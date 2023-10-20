@@ -10,6 +10,7 @@ class ClassifierTrainer(BaseTrainer):
 
         # process_batch
         outputs = self.model(inputs)
+        
 
         # compute_loss
         loss_value = self.loss(outputs, targets)
@@ -25,6 +26,7 @@ class ClassifierTrainer(BaseTrainer):
             'loss' : loss_value,
             **metrics_values
         }
+        print("train",outputs.size(),targets.size())
 
         return results
     

@@ -1,6 +1,6 @@
 device: cuda:0
 
-epochs: 50
+epochs: 100
 
 loss:
   name: BCELoss
@@ -36,7 +36,7 @@ metrics:
 #     min_lr: 1e-6
 
 checkpointer:
-  save_dir: "/workspace/data/torchmanager/checkpoints/testexp8"
-  save_period: 10
+  save_dir: "/workspace/data/torchmanager/checkpoints/finalexp8"
+  save_period: 1
   # resume: true
   # resume_path: "/workspace/data/testexp8/epoch_20.pth"

@@ -15,21 +15,21 @@ class NIH_CXR_14_Preloader:
     metadata_file_name = "Data_Entry_2017.csv"
     
     classes = [
-#         "No Finding",
-        "Atelectasis",
-        "Cardiomegaly",
-        "Effusion",
-        "Infiltration",
-        "Mass",
-        "Nodule",
-        "Pneumonia",
-        "Pneumothorax",
-        "Consolidation",
-        "Edema",
-        "Emphysema",
-        "Fibrosis",
-        "Pleural_Thickening",
-        "Hernia"
+        "No Finding",
+        # "Atelectasis",
+        # "Cardiomegaly",
+        # "Effusion",
+        # "Infiltration",
+        # "Mass",
+        # "Nodule",
+        # "Pneumonia",
+        # "Pneumothorax",
+        # "Consolidation",
+        # "Edema",
+        # "Emphysema",
+        # "Fibrosis",
+        # "Pleural_Thickening",
+        # "Hernia"
     ]
     
     train_list = "train_val_list.txt"

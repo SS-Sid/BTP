@@ -1,0 +1,58 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: finalexp101
+spec:
+  template:
+    spec:
+      containers:
+      - name: finalexp101
+        image: nvcr.io/nvidia/pytorch:22.06-py3
+        command: ["python"]
+        args: ["/workspace/data/torchmanager/main.py"]
+        env:
+        - name: HOME
+          value: /home/jain49
+        resources:
+          limits:
+            nvidia.com/gpu: 1
+        volumeMounts:
+        - name: data
+          mountPath: /workspace/data
+        - name: nfs
+          mountPath: /workspace/storage
+        - name: home
+          mountPath: /home
+        - name: shadow
+          mountPath: "/etc/shadow" 
+          readOnly: true
+        - name: password
+          mountPath: "/etc/passwd"
+          readOnly: true
+        - name: group
+          mountPath: "/etc/group"
+          readOnly: true
+      volumes:
+      - name: data
+        hostPath:
+          path: /raid/jain49
+          type: Directory
+      - name: nfs
+        hostPath:
+          path: /DATA1/jain49
+          type: Directory
+      - name: home
+        hostPath:
+          path: /home/jain49
+          type: Directory
+      - name: group
+        hostPath:
+          path: "/etc/group"
+      - name: shadow
+        hostPath:
+          path: "/etc/shadow"
+      - name: password
+        hostPath:
+          path: "/etc/passwd"
+      restartPolicy: Never
+  backoffLimit: 1
