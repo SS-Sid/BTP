@@ -1,0 +1,17 @@
+grouped bar plot for multadds and params
+line plot for multilabel auroc 3 datasets
+line plot for binarylabel auroc 3 datasets
+3 subplots if possible
+boxplot for 7 models and box represent the 14 labels
+generalization plot
+bubble plot intro
+radar plot intro
+ablation plot 
+
+
+
+
+
+
+Extra :
+boxplot giving info of 14 variables

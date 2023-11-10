@@ -1,0 +1,177 @@
+@article{DBLP:journals/corr/abs-2104-05704,
+  author       = {Ali Hassani and
+                  Steven Walton and
+                  Nikhil Shah and
+                  Abulikemu Abuduweili and
+                  Jiachen Li and
+                  Humphrey Shi},
+  title        = {Escaping the Big Data Paradigm with Compact Transformers},
+  journal      = {CoRR},
+  volume       = {abs/2104.05704},
+  year         = {2021},
+  url          = {https://arxiv.org/abs/2104.05704},
+  eprinttype    = {arXiv},
+  eprint       = {2104.05704},
+  timestamp    = {Mon, 07 Nov 2022 08:34:14 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2104-05704.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+
+
+@article{DBLP:journals/corr/abs-2110-02178,
+  author       = {Sachin Mehta and
+                  Mohammad Rastegari},
+  title        = {MobileViT: Light-weight, General-purpose, and Mobile-friendly Vision
+                  Transformer},
+  journal      = {CoRR},
+  volume       = {abs/2110.02178},
+  year         = {2021},
+  url          = {https://arxiv.org/abs/2110.02178},
+  eprinttype    = {arXiv},
+  eprint       = {2110.02178},
+  timestamp    = {Fri, 08 Oct 2021 15:47:55 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2110-02178.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+@article{DBLP:journals/corr/abs-2103-15808,
+  author       = {Haiping Wu and
+                  Bin Xiao and
+                  Noel Codella and
+                  Mengchen Liu and
+                  Xiyang Dai and
+                  Lu Yuan and
+                  Lei Zhang},
+  title        = {CvT: Introducing Convolutions to Vision Transformers},
+  journal      = {CoRR},
+  volume       = {abs/2103.15808},
+  year         = {2021},
+  url          = {https://arxiv.org/abs/2103.15808},
+  eprinttype    = {arXiv},
+  eprint       = {2103.15808},
+  timestamp    = {Tue, 18 Oct 2022 08:35:30 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2103-15808.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+
+@article{DBLP:journals/corr/VaswaniSPUJGKP17,
+  author       = {Ashish Vaswani and
+                  Noam Shazeer and
+                  Niki Parmar and
+                  Jakob Uszkoreit and
+                  Llion Jones and
+                  Aidan N. Gomez and
+                  Lukasz Kaiser and
+                  Illia Polosukhin},
+  title        = {Attention Is All You Need},
+  journal      = {CoRR},
+  volume       = {abs/1706.03762},
+  year         = {2017},
+  url          = {http://arxiv.org/abs/1706.03762},
+  eprinttype    = {arXiv},
+  eprint       = {1706.03762},
+  timestamp    = {Sat, 23 Jan 2021 01:20:40 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/VaswaniSPUJGKP17.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+@article{DBLP:journals/corr/abs-2010-11929,
+  author       = {Alexey Dosovitskiy and
+                  Lucas Beyer and
+                  Alexander Kolesnikov and
+                  Dirk Weissenborn and
+                  Xiaohua Zhai and
+                  Thomas Unterthiner and
+                  Mostafa Dehghani and
+                  Matthias Minderer and
+                  Georg Heigold and
+                  Sylvain Gelly and
+                  Jakob Uszkoreit and
+                  Neil Houlsby},
+  title        = {An Image is Worth 16x16 Words: Transformers for Image Recognition
+                  at Scale},
+  journal      = {CoRR},
+  volume       = {abs/2010.11929},
+  year         = {2020},
+  url          = {https://arxiv.org/abs/2010.11929},
+  eprinttype    = {arXiv},
+  eprint       = {2010.11929},
+  timestamp    = {Fri, 20 Nov 2020 14:04:05 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2010-11929.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+
+@article{DBLP:journals/corr/ZhangZLS17,
+  author       = {Xiangyu Zhang and
+                  Xinyu Zhou and
+                  Mengxiao Lin and
+                  Jian Sun},
+  title        = {ShuffleNet: An Extremely Efficient Convolutional Neural Network for
+                  Mobile Devices},
+  journal      = {CoRR},
+  volume       = {abs/1707.01083},
+  year         = {2017},
+  url          = {http://arxiv.org/abs/1707.01083},
+  eprinttype    = {arXiv},
+  eprint       = {1707.01083},
+  timestamp    = {Tue, 31 Aug 2021 13:57:12 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/ZhangZLS17.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+
+@article{DBLP:journals/corr/HowardZCKWWAA17,
+  author       = {Andrew G. Howard and
+                  Menglong Zhu and
+                  Bo Chen and
+                  Dmitry Kalenichenko and
+                  Weijun Wang and
+                  Tobias Weyand and
+                  Marco Andreetto and
+                  Hartwig Adam},
+  title        = {MobileNets: Efficient Convolutional Neural Networks for Mobile Vision
+                  Applications},
+  journal      = {CoRR},
+  volume       = {abs/1704.04861},
+  year         = {2017},
+  url          = {http://arxiv.org/abs/1704.04861},
+  eprinttype    = {arXiv},
+  eprint       = {1704.04861},
+  timestamp    = {Thu, 27 May 2021 16:20:51 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/HowardZCKWWAA17.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+
+@article{DBLP:journals/corr/IandolaMAHDK16,
+  author       = {Forrest N. Iandola and
+                  Matthew W. Moskewicz and
+                  Khalid Ashraf and
+                  Song Han and
+                  William J. Dally and
+                  Kurt Keutzer},
+  title        = {SqueezeNet: AlexNet-level accuracy with 50x fewer parameters and {\textless}1MB
+                  model size},
+  journal      = {CoRR},
+  volume       = {abs/1602.07360},
+  year         = {2016},
+  url          = {http://arxiv.org/abs/1602.07360},
+  eprinttype    = {arXiv},
+  eprint       = {1602.07360},
+  timestamp    = {Fri, 20 Nov 2020 16:16:06 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/IandolaMAHDK16.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
+
+
+add references to datasets also

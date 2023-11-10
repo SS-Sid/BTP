@@ -26,6 +26,6 @@ params:
     patch_size: 
       - 2
       - 2
-    num_classes: 14
+    num_classes: 14 
     attn_p: 0.1
     proj_p: 0.1
